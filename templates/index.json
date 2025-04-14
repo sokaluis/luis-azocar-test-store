@@ -63,7 +63,7 @@
         "title": "Endless Support for Every Health Journey",
         "heading_size": "h1",
         "heading_color": "#000000",
-        "header_opacity": 0.9,
+        "header_opacity": 90,
         "header_blur": 8,
         "description": "VitaLuxe supplements are crafted with your future in mind—formulated by experts, rooted in science, and designed to work as hard as you do. Because your health deserves nothing less.",
         "description_size": 16,
@@ -90,10 +90,64 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "flexible_image_text": {
+      "type": "flexible-image-text",
+      "settings": {
+        "reverse_layout": false,
+        "image_size": "medium",
+        "section_padding_vertical": 30,
+        "section_padding_horizontal": 20,
+        "image_background_color": "#f5f5f5",
+        "content_background_color": "#f5f5f5",
+        "heading": "Boost Your Health. Save While You Thrive",
+        "text": "<p>Health is a journey, not a one-time event. Get consistent support with our Subscribe and Save option, delivering up to 15% off every order to keep you on track and feeling your best.</p>",
+        "button_label": "GET A SUBSCRIPTION",
+        "button_link": "/collections/all",
+        "button_full_width": false,
+        "button_alignment": "left",
+        "heading_size": 42,
+        "heading_color": "#000000",
+        "text_size": 16,
+        "text_color": "#333333",
+        "button_text_size": 16,
+        "button_bg_color": "#E60087",
+        "button_text_color": "#FFFFFF",
+        "button_hover_color": "#C4007A",
+        "button_radius": 25
+      }
+    },
+    "flexible_image_text_reverse": {
+      "type": "flexible-image-text",
+      "settings": {
+        "reverse_layout": true,
+        "image_size": "small",
+        "section_padding_vertical": 30,
+        "section_padding_horizontal": 20,
+        "image_background_color": "#000000",
+        "content_background_color": "#ffffff",
+        "heading": "The Essentials for Thriving Health",
+        "text": "<p>From energy to recovery, we've got your back—and every other muscle, joint, and cell in between.</p>",
+        "button_label": "GET A SUBSCRIPTION",
+        "button_link": "/collections/all",
+        "button_full_width": true,
+        "button_alignment": "center",
+        "heading_size": 42,
+        "heading_color": "#000000",
+        "text_size": 16,
+        "text_color": "#333333",
+        "button_text_size": 16,
+        "button_bg_color": "#E60087",
+        "button_text_color": "#FFFFFF",
+        "button_hover_color": "#C4007A",
+        "button_radius": 25
+      }
     }
   },
   "order": [
     "hero_section",
-    "featured_collection"
+    "featured_collection",
+    "flexible_image_text",
+    "flexible_image_text_reverse"
   ]
 }

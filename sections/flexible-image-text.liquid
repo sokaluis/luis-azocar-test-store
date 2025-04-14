@@ -1,0 +1,481 @@
+{% style %}
+  .flexible-section {
+    overflow: hidden;
+    padding: {{ section.settings.section_padding_vertical }}px 0;
+  }
+
+  .flexible-section__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.section_padding_horizontal }}px;
+  }
+
+  .flexible-section__container--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .flexible-section__side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flexible-section__side--image {
+    overflow: hidden;
+  }
+
+  .flexible-section__side--image.flexible-section__side--full,
+  .flexible-section__side--image.flexible-section__side--medium {
+    width: 50%;
+  }
+
+  .flexible-section__side--image.flexible-section__side--small {
+    width: 30%;
+  }
+
+  .flexible-section__side--content.flexible-section__side--full,
+  .flexible-section__side--content.flexible-section__side--medium {
+    width: 50%;
+  }
+
+  .flexible-section__side--content.flexible-section__side--small {
+    width: 70%;
+  }
+
+  .flexible-section__image-container {
+    position: relative;
+    width: 100%;
+    height: 575px;
+    max-height: 575px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flexible-section__image-container--full {
+    width: 100%;
+    padding: 0;
+  }
+
+  .flexible-section__image-container--medium {
+    width: 100%;
+    padding: 10%;
+  }
+
+  .flexible-section__image-container--small {
+    width: 100%;
+    padding: 10%;
+  }
+
+  .flexible-section__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .flexible-section__image--full {
+    object-fit: cover;
+  }
+
+  .flexible-section__image--medium,
+  .flexible-section__image--small {
+    object-fit: contain;
+  }
+
+  .flexible-section__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flexible-section__content-wrapper {
+    width: 100%;
+    max-width: 90%;
+    padding: 30px 0;
+  }
+
+  .flexible-section__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: {{ section.settings.heading_size }}px !important;
+    font-weight: bold;
+    line-height: 1.2;
+    color: {{ section.settings.heading_color }} !important;
+  }
+
+  .flexible-section__subtitle {
+    margin-bottom: 25px;
+    font-size: {{ section.settings.text_size }}px !important;
+    line-height: 1.5;
+    color: {{ section.settings.text_color }} !important;
+  }
+
+  .flexible-section__button-wrapper {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .flexible-section__button-wrapper--left {
+    text-align: left;
+  }
+
+  .flexible-section__button-wrapper--center {
+    text-align: center;
+  }
+
+  .flexible-section__button-wrapper--right {
+    text-align: right;
+  }
+
+  .flexible-section__button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: {{ section.settings.button_radius }}px !important;
+    background-color: {{ section.settings.button_bg_color }} !important;
+    color: {{ section.settings.button_text_color }} !important;
+    font-size: {{ section.settings.button_text_size }}px !important;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .flexible-section__button--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  .flexible-section__button--inline {
+    display: inline-block;
+  }
+
+  .flexible-section__button:hover {
+    background-color: {{ section.settings.button_hover_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .flexible-section__container,
+    .flexible-section__container--reverse {
+      flex-direction: column;
+    }
+
+    .flexible-section__side--image.flexible-section__side--full,
+    .flexible-section__side--image.flexible-section__side--medium,
+    .flexible-section__side--image.flexible-section__side--small,
+    .flexible-section__side--content.flexible-section__side--full,
+    .flexible-section__side--content.flexible-section__side--medium,
+    .flexible-section__side--content.flexible-section__side--small {
+      width: 100%;
+    }
+
+    .flexible-section__image-container {
+      height: 350px;
+    }
+
+    .flexible-section__content-wrapper {
+      padding: 30px 20px;
+    }
+
+    .flexible-section__title {
+      font-size: calc({{ section.settings.heading_size }}px * 0.8);
+    }
+
+    .flexible-section__subtitle {
+      font-size: calc({{ section.settings.text_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<section class="flexible-section">
+  <div class="flexible-section__container{% if section.settings.reverse_layout %} flexible-section__container--reverse{% endif %}">
+    <div
+      class="flexible-section__side flexible-section__side--image flexible-section__side--{{ section.settings.image_size }}"
+      style="background-color: {{ section.settings.image_background_color }};"
+    >
+      <div class="flexible-section__image-container flexible-section__image-container--{{ section.settings.image_size }}">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | img_url: 'master' }}"
+            srcset="
+              {{ section.settings.image | img_url: '600x' }} 600w,
+              {{ section.settings.image | img_url: '800x' }} 800w,
+              {{ section.settings.image | img_url: '1200x' }} 1200w,
+              {{ section.settings.image | img_url: '1600x' }} 1600w
+            "
+            sizes="(max-width: 768px) 100vw, 50vw"
+            alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+            class="flexible-section__image flexible-section__image--{{ section.settings.image_size }}"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="flexible-section__placeholder" style="background-color: #f4f4f4;">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div
+      class="flexible-section__side flexible-section__side--content flexible-section__side--{{ section.settings.image_size }}"
+      style="background-color: {{ section.settings.content_background_color }};"
+    >
+      <div class="flexible-section__content-wrapper">
+        {% if section.settings.heading != blank %}
+          <h2
+            class="flexible-section__title"
+            style="color: {{ section.settings.heading_color }} !important; font-size: {{ section.settings.heading_size }}px !important;"
+          >
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div
+            class="flexible-section__subtitle"
+            style="color: {{ section.settings.text_color }} !important; font-size: {{ section.settings.text_size }}px !important;"
+          >
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <div class="flexible-section__button-wrapper flexible-section__button-wrapper--{{ section.settings.button_alignment }}">
+            <a
+              href="{{ section.settings.button_link }}"
+              class="flexible-section__button {% if section.settings.button_full_width %}flexible-section__button--full-width{% else %}flexible-section__button--inline{% endif %}"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Imagen con texto flexible",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Configuración general"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Invertir layout (imagen a la derecha)",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Tamaño de imagen",
+      "options": [
+        {
+          "value": "full",
+          "label": "Grande"
+        },
+        {
+          "value": "medium",
+          "label": "Mediana"
+        },
+        {
+          "value": "small",
+          "label": "Pequeña"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_vertical",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding vertical de la sección",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding horizontal de la sección",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Configuración de imagen"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "color",
+      "id": "image_background_color",
+      "label": "Color de fondo para la parte de imagen"
+    },
+    {
+      "type": "header",
+      "content": "Configuración de contenido"
+    },
+    {
+      "type": "color",
+      "id": "content_background_color",
+      "label": "Color de fondo para la parte de contenido"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Título de tu sección"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texto",
+      "default": "<p>Usa esta sección para promocionar un producto o contar algo sobre tu marca.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Botón"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_full_width",
+      "label": "Botón a ancho completo",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Alineación del botón",
+      "options": [
+        {
+          "value": "left",
+          "label": "Izquierda"
+        },
+        {
+          "value": "center",
+          "label": "Centro"
+        },
+        {
+          "value": "right",
+          "label": "Derecha"
+        }
+      ],
+      "default": "left",
+      "info": "Solo se aplica si el botón no está a ancho completo"
+    },
+    {
+      "type": "header",
+      "content": "Estilos de texto"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño del título",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del título"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del texto",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Estilos del botón"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de texto del botón",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Color de fondo del botón",
+      "default": "#E60087"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Color de texto del botón",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Color de fondo del botón (hover)",
+      "default": "#C4007A"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Radio de bordes del botón",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Imagen con texto flexible",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
