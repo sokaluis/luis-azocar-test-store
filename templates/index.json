@@ -9,43 +9,51 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_section": {
+      "type": "hero-section",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "feature_1": {
+          "type": "feature",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "title": "High Quality",
+            "subtitle": "Science-Backed Formulas"
           }
         },
-        "button": {
-          "type": "buttons",
+        "feature_2": {
+          "type": "feature",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "By Healthcare Providers",
+            "subtitle": "Experts in cardiovascular health"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Premium Ingredients",
+            "subtitle": "High Quality, Pure and Potent"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "feature_1",
+        "feature_2",
+        "feature_3"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "background_image": "shopify://shop_images/hero-background.jpg",
+        "title": "Fuel Your Health With Precision",
+        "heading_size": 60,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4,
+        "button_text": "Shop All",
+        "button_link": "/collections/all",
+        "button_color": "#E60087",
+        "button_text_color": "#ffffff",
+        "button_hover_color": "#C4007A",
+        "button_radius": 25,
+        "feature_background": "rgba(255, 255, 255, 0.9)",
+        "header_background": "rgba(255, 255, 255, 0.9)"
       }
     },
     "featured_collection": {
@@ -78,7 +86,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "hero_section",
     "featured_collection"
   ]
 }
