@@ -1,0 +1,22 @@
+{
+  "name": "luis-azocar-test-store",
+  "version": "1.0.0",
+  "description": "Shopify store for Luis Azocar",
+  "scripts": {
+    "start": "shopify theme dev",
+    "build": "shopify theme build",
+    "deploy": "shopify theme deploy",
+    "check": "shopify theme check",
+    "push": "shopify theme push",
+    "pull": "shopify theme pull"
+  },
+  "dependencies": {
+    "@shopify/cli": "^3.0.0",
+    "@shopify/theme": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0"
+  }
+} 
