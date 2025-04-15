@@ -73,7 +73,7 @@
         "description_color": "#666666",
         "collection": "all",
         "products_to_show": 12,
-        "products_width": 60,
+        "products_width": 65,
         "product_title_size": 20,
         "product_title_color": "#000000",
         "product_subtitle_size": 14,
@@ -107,6 +107,8 @@
       "settings": {
         "reverse_layout": true,
         "image_size": "full",
+        "section_padding_vertical": 0,
+        "section_padding_horizontal": 0,
         "image": "shopify://shop_images/16badebaae0c6f00b92a8c39a6e644b6.jpg",
         "image_background_color": "#f5f5f5",
         "content_background_color": "#f5f5f5",
@@ -132,9 +134,11 @@
       "settings": {
         "reverse_layout": false,
         "image_size": "full",
+        "section_padding_vertical": 0,
+        "section_padding_horizontal": 0,
         "image": "shopify://shop_images/bf893c330e5cdff346be97aee187916a.jpg",
-        "image_background_color": "#000000",
-        "content_background_color": "#060707",
+        "image_background_color": "#121212",
+        "content_background_color": "#020608",
         "heading": "The Essentials for Thriving Health",
         "text": "<p>From energy to recovery, we've got your back—and every other muscle, joint, and cell in between.</p>",
         "button_label": "GET A SUBSCRIPTION",
@@ -152,11 +156,13 @@
         "button_radius": 25
       }
     },
-    "flexible_image_text_LBjXGG": {
+    "flexible_image_text_mRq7wb": {
       "type": "flexible-image-text",
       "settings": {
         "reverse_layout": false,
         "image_size": "medium",
+        "section_padding_vertical": 0,
+        "section_padding_horizontal": 0,
         "image": "shopify://shop_images/823b280372213d6340ac1866898a0f2f.jpg",
         "image_background_color": "rgba(0,0,0,0)",
         "content_background_color": "rgba(0,0,0,0)",
@@ -165,7 +171,7 @@
         "button_label": "LEARN MORE ABOUT US",
         "button_link": "/collections/all",
         "button_full_width": false,
-        "button_alignment": "left",
+        "button_alignment": "right",
         "heading_size": 42,
         "heading_color": "#000000",
         "text_size": 16,
@@ -177,11 +183,13 @@
         "button_radius": 25
       }
     },
-    "flexible_image_text_87j9D6": {
+    "flexible_image_text_ddrxMp": {
       "type": "flexible-image-text",
       "settings": {
         "reverse_layout": false,
         "image_size": "small",
+        "section_padding_vertical": 0,
+        "section_padding_horizontal": 0,
         "image": "shopify://shop_images/70833fc23649b987858b5e95e1ef11f2.png",
         "image_background_color": "#141414",
         "content_background_color": "#141414",
@@ -208,7 +216,7 @@
     "featured_collection",
     "flexible_image_text",
     "flexible_image_text_reverse",
-    "flexible_image_text_LBjXGG",
-    "flexible_image_text_87j9D6"
+    "flexible_image_text_mRq7wb",
+    "flexible_image_text_ddrxMp"
   ]
 }
