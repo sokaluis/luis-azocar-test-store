@@ -64,7 +64,7 @@
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
-    font-size: {{ section.settings.font_size }}rem;
+    font-size: {{ section.settings.font_size }}px;
     letter-spacing: 0.05em;
     transition: color 0.3s ease;
   }
@@ -109,8 +109,8 @@
   }
 
   .header__cart .svg-wrapper {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
   }
 
   .cart-icon-bubble {
@@ -120,8 +120,8 @@
   }
 
   .icon-cart {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     color: {{ section.settings.text_color }};
   }
 
@@ -322,11 +322,11 @@
     {
       "type": "range",
       "id": "font_size",
-      "min": 0.8,
-      "max": 1.2,
-      "step": 0.1,
-      "default": 0.9,
-      "unit": "rem",
+      "min": 18,
+      "max": 36,
+      "step": 1,
+      "default": 24,
+      "unit": "px",
       "label": "Font size"
     },
     {

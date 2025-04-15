@@ -1,148 +1,179 @@
 {% style %}
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  margin-top: 0;
-  padding-top: var(--header-height, 80px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: {{ section.settings.text_color }};
-}
-
-.header-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background: {{ section.settings.header_background | default: 'rgba(255, 255, 255, 0.9)' }};
-  transition: background-color 0.3s ease;
-}
-
-.hero-section__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: {{ section.settings.overlay_color }};
-  opacity: {{ section.settings.overlay_opacity }};
-}
-
-.hero-section__content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
-  margin-top: 15vh;
-}
-
-.hero-section__title {
-  font-size: {{ section.settings.heading_size }}px;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  line-height: 1.2;
-  color: {{ section.settings.text_color }};
-}
-
-.hero-section__button {
-  display: inline-block;
-  padding: 1rem 3rem;
-  border-radius: {{ section.settings.button_radius }}px;
-  background-color: {{ section.settings.button_color }};
-  color: {{ section.settings.button_text_color }};
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.hero-section__button:hover {
-  background-color: {{ section.settings.button_hover_color }};
-}
-
-.hero-section__features {
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  width: 70%;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.hero-section__feature {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  background: {{ section.settings.feature_background }};
-  padding: 2rem;
-  border-radius: 8px;
-  flex: 1;
-  min-width: 0;
-}
-
-.hero-section__feature-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.hero-section__feature-content {
-  text-align: left;
-  flex: 1;
-  min-width: 0;
-}
-
-.hero-section__feature-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: {{ section.settings.text_color }};
-}
-
-.hero-section__feature-subtitle {
-  font-size: 1rem;
-  opacity: 0.9;
-  color: {{ section.settings.text_color }};
-
-@media screen and (max-width: 768px) {
   .hero-section {
-    min-height: 500px;
-    padding-top: 3rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    margin-top: 0;
+    padding-top: var(--header-height, 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: {{ section.settings.text_color }};
+  }
+
+  .header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: {{ section.settings.header_background | default: 'rgba(255, 255, 255, 0.9)' }};
+    transition: background-color 0.3s ease;
+  }
+
+  .hero-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity }};
+  }
+
+  .hero-section__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 2rem;
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-section__title-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .hero-section__title {
+    font-size: {{ section.settings.heading_size }}px;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: {{ section.settings.text_color }};
+    text-transform: uppercase;
+  }
+
+  .hero-section__button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    border-radius: {{ section.settings.button_radius }}px;
+    background-color: {{ section.settings.button_color }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero-section__button:hover {
+    background-color: {{ section.settings.button_hover_color }};
   }
 
   .hero-section__features {
-    position: relative;
-    flex-direction: column;
-    bottom: auto;
-    margin-top: 2rem;
-    width: 85%;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1200px;
   }
 
   .hero-section__feature {
-    width: 100%;
-    max-width: 100%;
-    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: {{ section.settings.feature_background }};
+    padding: 2rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 0;
   }
-}
+
+  .hero-section__feature-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .hero-section__feature-content {
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-section__feature-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    text-transform: uppercase;
+  }
+
+  .hero-section__feature-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    color: {{ section.settings.text_color }};
+    margin: 0px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-section {
+      min-height: 500px;
+      padding-top: 3rem;
+    }
+
+    .hero-section__features {
+      position: relative;
+      flex-direction: column;
+      bottom: auto;
+      margin-top: 2rem;
+      width: 85%;
+    }
+
+    .hero-section__feature {
+      width: 100%;
+      max-width: 100%;
+      padding: 1.5rem;
+    }
+  }
 {% endstyle %}
 
-<div class="hero-section" {% if section.settings.background_image %}style="background-image: url('{{ section.settings.background_image | img_url: '2000x' }}')"{% endif %}>
+<div
+  class="hero-section"
+  {% if section.settings.background_image %}
+    style="background-image: url('{{ section.settings.background_image | img_url: '2000x' }}')"
+  {% endif %}
+>
   <div class="hero-section__overlay"></div>
-  
+
   <div class="hero-section__content">
-    <h1 class="hero-section__title">{{ section.settings.title }}</h1>
+    {% if section.settings.title_image %}
+      <img
+        src="{{ section.settings.title_image | img_url: '1000x' }}"
+        alt="{{ section.settings.title | default: shop.name }}"
+        class="hero-section__title-image"
+        width="1000"
+        height="auto"
+        loading="lazy"
+      >
+    {% else %}
+      <h1 class="hero-section__title">{{ section.settings.title }}</h1>
+    {% endif %}
     <a href="{{ section.settings.button_link }}" class="hero-section__button">
       {{ section.settings.button_text }}
     </a>
@@ -154,7 +185,7 @@
         <div class="hero-section__feature">
           {% if block.settings.icon %}
             {% assign icon_size = '100x' %}
-            <img 
+            <img
               src="{{ block.settings.icon | img_url: icon_size }}"
               alt="{{ block.settings.title }}"
               class="hero-section__feature-icon"
@@ -190,10 +221,17 @@
       "default": "rgba(255, 255, 255, 0.9)"
     },
     {
+      "type": "image_picker",
+      "id": "title_image",
+      "label": "Title Image",
+      "info": "If provided, will replace the text title. Recommended size: 1000 x 300 pixels"
+    },
+    {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Fuel Your Health With Precision"
+      "label": "Title Text",
+      "default": "Fuel Your Health With Precision",
+      "info": "Shown if no title image is provided"
     },
     {
       "type": "range",
@@ -304,6 +342,7 @@
       "settings": {
         "background_image": "shopify://shop_images/hero-background.jpg",
         "title": "Fuel Your Health With Precision",
+        "title_image": "",
         "button_text": "Shop All",
         "button_link": "/collections/all"
       },
@@ -321,4 +360,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}

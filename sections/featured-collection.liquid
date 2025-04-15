@@ -52,18 +52,9 @@
     margin-bottom: 1rem;
     color: {{ section.settings.heading_color }};
     line-height: 1.2;
-  }
-
-  .featured-collection__title.h0 {
-    font-size: 3.5rem;
-  }
-
-  .featured-collection__title.h1 {
-    font-size: 2.5rem;
-  }
-
-  .featured-collection__title.h2 {
-    font-size: 2rem;
+    font-size: {{ section.settings.heading_font_size }}px;
+    white-space: pre-line;
+    text-align: {{ section.settings.text_alignment }};
   }
 
   .featured-collection__description {
@@ -72,6 +63,7 @@
     color: {{ section.settings.description_color }};
     max-width: 800px;
     margin: 0 auto;
+    text-align: {{ section.settings.text_alignment }};
   }
 
   .featured-collection__grid {
@@ -189,16 +181,8 @@
       padding: 0 1rem;
     }
 
-    .featured-collection__title.h0 {
-      font-size: 2.5rem;
-    }
-
-    .featured-collection__title.h1 {
-      font-size: 2rem;
-    }
-
-    .featured-collection__title.h2 {
-      font-size: 1.5rem;
+    .featured-collection__title {
+      font-size: {{ section.settings.heading_font_size | minus: 10 }}px;
     }
 
     .featured-collection__header {
@@ -239,9 +223,9 @@
   >
     <div class="featured-collection__header">
       {%- if section.settings.title != blank -%}
-        <h2 class="featured-collection__title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+        <h2 class="featured-collection__title">{{ section.settings.title }}</h2>
       {%- endif -%}
-      
+
       {%- if section.settings.description != blank -%}
         <div class="featured-collection__description">
           {{ section.settings.description }}
@@ -258,12 +242,9 @@
                 {{
                   product.featured_media
                   | image_url: width: 600
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'product-card__image',
-                    sizes: '(min-width: 750px) 50vw, 100vw'
+                  | image_tag: loading: 'lazy', class: 'product-card__image', sizes: '(min-width: 750px) 50vw, 100vw'
                 }}
-                {%- if section.settings.show_secondary_image and product.media[1] != nil -%}
+                {%- if section.settings.show_secondary_image and product.media[1] != null -%}
                   {{
                     product.media[1]
                     | image_url: width: 600
@@ -362,30 +343,20 @@
       "content": "Section Header"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "title",
       "label": "Title",
       "default": "Endless Support for Every Health Journey"
     },
     {
-      "type": "select",
-      "id": "heading_size",
-      "label": "Title Size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "Small"
-        },
-        {
-          "value": "h1",
-          "label": "Medium"
-        },
-        {
-          "value": "h0",
-          "label": "Large"
-        }
-      ],
-      "default": "h1"
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 42
     },
     {
       "type": "color",
@@ -622,7 +593,7 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_collection.content"
-    },    
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -696,12 +667,32 @@
           "label": "2 columns"
         }
       ]
-    },    
+    },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
     }
   ],
   "presets": [
@@ -714,7 +705,7 @@
         "full_width": false,
         "header_opacity": 90,
         "header_blur": 8,
-        "heading_size": "h1",
+        "heading_font_size": 42,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "view_all_text": "Shop All",
@@ -722,7 +713,8 @@
         "view_all_hover_color": "#C4007A",
         "view_all_text_color": "#FFFFFF",
         "view_all_text_size": 14,
-        "view_all_radius": 100
+        "view_all_radius": 100,
+        "text_alignment": "left"
       }
     }
   ]
